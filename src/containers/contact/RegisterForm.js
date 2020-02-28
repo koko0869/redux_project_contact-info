@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField, initializeForm } from "../../modules/contact";
+import { changeField, initializeForm, insert } from "../../modules/contact";
 import Register from "../../components/contact/Register";
 
 const RegisterForm = () => {
@@ -11,7 +11,6 @@ const RegisterForm = () => {
 
   //인풋 변경 이벤트 헨들러
   const onChange = e => {
-    console.log("22222222");
     const { value, name } = e.target;
     dispatch(
       changeField({
@@ -23,6 +22,8 @@ const RegisterForm = () => {
   };
 
   const onSubmit = e => {
+    //이부분 해야함!!!!!
+    insert();
     e.preventDefault();
   };
 

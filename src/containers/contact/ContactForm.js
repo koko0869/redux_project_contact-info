@@ -12,7 +12,6 @@ const ContactForm = () => {
   //인풋 변경 이벤트 헨들러
   const onChange = e => {
     const { value, name } = e.target;
-    console.log("1111111");
     dispatch(
       changeField({
         form: "contacts",
