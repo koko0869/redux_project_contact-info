@@ -23,8 +23,10 @@ const RegisterForm = () => {
 
   const onSubmit = e => {
     //이부분 해야함!!!!!
-    insert();
+
+    dispatch(insert(form.username, form.phone));
     e.preventDefault();
+    alert("연락처를 저장 하였습니다! ");
   };
 
   useEffect(() => {

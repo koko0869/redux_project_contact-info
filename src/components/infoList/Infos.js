@@ -10,23 +10,29 @@ const InfoItem = ({ info, onToggle, onRemove }) => {
         checked={info.favorite}
         readOnly={true}
       />
-      {info.name} {info.phone}
-      <button onClick={onRemove}>삭제</button>
+      {info.username} {info.phone}
+      <button onClick={() => onRemove(info.id)}>삭제</button>
     </div>
   );
 };
 
-const Infos = ({ infos, onToggle, onRemove }) => {
+const Infos = ({ infos, onToggle, onRemove, search }) => {
   return (
     <div>
-      {infos.map(info => (
-        <InfoItem
-          info={info}
-          key={info.id}
-          onToggle={onToggle}
-          onRemove={onRemove}
-        />
-      ))}
+      {
+        (infos = infos
+          .filter(info => {
+            return info.username.indexOf(search) !== -1;
+          })
+          .map(info => (
+            <InfoItem
+              info={info}
+              key={info.id}
+              onToggle={onToggle}
+              onRemove={onRemove}
+            />
+          )))
+      }
     </div>
   );
 };

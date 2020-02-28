@@ -22,11 +22,11 @@ export const initializeForm = createAction(INITIALIZE_FORM, form => form);
 //여기서 부터
 
 let id = 4;
-export const insert = createAction(INSERT, (name, phone) => ({
+export const insert = createAction(INSERT, (username, phone) => ({
   id: id++,
-  name,
-  phone,
-  favoirte: false
+  username: username,
+  phone: phone,
+  favorite: false
 }));
 export const toggle = createAction(TOGGLE, id => id);
 export const remove = createAction(REMOVE, id => id);
@@ -60,19 +60,19 @@ const initialState = {
   infos: [
     {
       id: 1,
-      name: "test1",
+      username: "test1",
       phone: "010-1234-1234",
       favorite: true
     },
     {
       id: 2,
-      name: "test2",
+      username: "test2",
       phone: "010-2222-2222",
       favorite: false
     },
     {
       id: 3,
-      name: "test3",
+      username: "test3",
       phone: "010-3333-3333",
       favorite: true
     }
@@ -89,7 +89,7 @@ const contact = handleActions(
       ...state,
       [form]: initialState[form]
     }),
-    [INSERT]: (state, { payload: { info } }) =>
+    [INSERT]: (state, { payload: info }) =>
       produce(state, draft => {
         draft.infos.push(info);
       }),
@@ -101,6 +101,8 @@ const contact = handleActions(
     [REMOVE]: (state, { payload: id }) =>
       produce(state, draft => {
         const index = draft.infos.findIndex(info => info.id === id);
+        console.log(index);
+
         draft.infos.splice(index, 1);
       })
   },

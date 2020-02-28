@@ -5,15 +5,23 @@ import Infos from "../../components/infoList/Infos";
 
 //매우중요
 const InfosList = () => {
-    //contact state중  infos를 가져옴
-  const { infos } = useSelector(({ contact }) => ({
-    infos: contact.infos
+  //contact state중  infos를 가져옴
+  const { infos, contacts } = useSelector(({ contact }) => ({
+    infos: contact.infos,
+    contacts: contact.contacts
   }));
   const dispatch = useDispatch();
   const onToggle = useCallback(id => dispatch(toggle(id)), [dispatch]);
   const onRemove = useCallback(id => dispatch(remove(id)), [dispatch]);
 
-  return <Infos infos={infos} onToggle={onToggle} onRemove={onRemove} />;
+  return (
+    <Infos
+      infos={infos}
+      onToggle={onToggle}
+      onRemove={onRemove}
+      search={contacts.search}
+    />
+  );
 };
 
 // export default connect(
