@@ -1,11 +1,7 @@
-import React from 'react'
-
+import React from "react";
+import Favorite from "../containers/favorite/FavoriteForm";
 const FavoirtePage = () => {
-    return (
-        <div>
-            즐겨찾기
-        </div>
-    )
-}
+  return <Favorite />;
+};
 
-export default FavoirtePage
+export default FavoirtePage;

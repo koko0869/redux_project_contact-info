@@ -20,14 +20,6 @@ const InfosList = () => {
   const dispatch = useDispatch();
   const onToggle = useCallback(id => dispatch(toggle(id)), [dispatch]);
   const onRemove = useCallback(id => dispatch(remove(id)), [dispatch]);
-  // const onUpdate = useCallback(
-  //   (username, phone, id) => dispatch(update(username, phone, id)),
-  //   [dispatch]
-  // );
-  // const onUpdate = useCallback(
-  //   (id, username, phone) => dispatch(update(id, username, phone)),
-  //   [dispatch]
-  // );
 
   const onChange = e => {
     const { value, name } = e.target;
@@ -63,15 +55,5 @@ const InfosList = () => {
     />
   );
 };
-
-// export default connect(
-//     ({ contact }) => ({
-//       infos: contact.infos
-//     }),
-//     {
-//       toggle,
-//       remove
-//     }
-//   )(InfosList);
 
 export default InfosList;

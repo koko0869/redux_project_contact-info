@@ -27,8 +27,6 @@ export default React.memo(function TransitionsModal({
   onChange,
   forms,
   id
-  // onChangeName,
-  // onChangePhone
 }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
