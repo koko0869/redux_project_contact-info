@@ -24,7 +24,9 @@ export default React.memo(function TransitionsModal({
   username,
   phone,
   onUpdate,
-  onChange
+  onChange,
+  forms,
+  id
   // onChangeName,
   // onChangePhone
 }) {
@@ -82,7 +84,9 @@ export default React.memo(function TransitionsModal({
               variant="outlined"
               size="small"
               color="primary"
-              onClick={onUpdate}
+              onClick={() =>
+                onUpdate(id, forms.username, forms.phone, handleClose)
+              }
             >
               완료
             </Button>

@@ -24,7 +24,10 @@ const InfosList = () => {
   //   (username, phone, id) => dispatch(update(username, phone, id)),
   //   [dispatch]
   // );
-  const onUpdate = useCallback((id, username, phone) => dispatch(update(id, username, phone)), [dispatch])
+  // const onUpdate = useCallback(
+  //   (id, username, phone) => dispatch(update(id, username, phone)),
+  //   [dispatch]
+  // );
 
   const onChange = e => {
     const { value, name } = e.target;
@@ -37,12 +40,12 @@ const InfosList = () => {
     );
   };
 
-  // const onUpdate = e => {
-  //   //이부분 해야함!!!!!
-  //   console.log(form.username, form.phone, form.id,"form.username, form.phone, form.id)")
-  //   dispatch(update(form.username, form.phone, form.id));
-  //   alert("연락처를 수정 하였습니다!! ");
-  // };
+  const onUpdate = (id, username, phone, handleClose) => {
+    //이부분 해야함!!!!!
+    dispatch(update(id, username, phone));
+    alert("연락처를 수정 하였습니다!! ");
+    handleClose();
+  };
 
   useEffect(() => {
     dispatch(initializeForm("register"));

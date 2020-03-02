@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "./Modal";
 
 const InfoItem = ({ info, onToggle, onRemove, onUpdate, onChange, form }) => {
+  console.log(info);
   return (
     <div>
       <input
@@ -15,8 +16,10 @@ const InfoItem = ({ info, onToggle, onRemove, onUpdate, onChange, form }) => {
         username={info.username}
         phone={info.phone}
         id={info.id}
-        onUpdate={() => onUpdate(info.id, form.username, form.phone)}
+        // onUpdate={() => onUpdate(info.id, form.username, form.phone)}
+        onUpdate={onUpdate}
         onChange={onChange}
+        forms={form}
       />
       <button onClick={() => onRemove(info.id)}>삭제</button>
     </div>
