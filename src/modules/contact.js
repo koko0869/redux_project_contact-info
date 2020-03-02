@@ -7,6 +7,7 @@ const INITIALIZE_FORM = "contact/INITIALIZE_FORM";
 const INSERT = "infos/INSERT";
 const TOGGLE = "infos/TOGGLE";
 const REMOVE = "infos/REMOVE";
+const UPDATE = "infos/UPDATE";
 
 //input ChangeFiled
 export const changeField = createAction(
@@ -30,6 +31,11 @@ export const insert = createAction(INSERT, (username, phone) => ({
 }));
 export const toggle = createAction(TOGGLE, id => id);
 export const remove = createAction(REMOVE, id => id);
+export const update = createAction(UPDATE, (id, username, phone) => ({
+  id,
+  username,
+  phone
+}));
 
 // export const insert = text => ({
 //   type: INSERT,
@@ -102,8 +108,13 @@ const contact = handleActions(
       produce(state, draft => {
         const index = draft.infos.findIndex(info => info.id === id);
         console.log(index);
-
         draft.infos.splice(index, 1);
+      }),
+    [UPDATE]: (state, { payload: { id, username, phone } }) =>
+      produce(state, draft => {
+        const info = draft.infos.find(info => info.id === id);
+        info.username = username;
+        info.phone = phone;
       })
   },
   initialState
