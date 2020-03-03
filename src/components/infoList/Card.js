@@ -13,7 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Modal from "./Modal";
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345
+    maxWidth: 375
   },
   media: {
     height: 50

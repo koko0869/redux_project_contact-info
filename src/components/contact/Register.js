@@ -1,8 +1,8 @@
 import React from "react";
-import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import palette from "../../lib/styles/palette";
 import Button from "../common/Button";
+import styled, { css } from "styled-components";
 
 //연락처 추가 폼
 
@@ -10,7 +10,7 @@ const RegisterBlock = styled.div`
   h3 {
     margin: 0;
     color: ${palette.gray[8]};
-    margin-bottom: 1rem;
+    height: 100%;
   }
 `;
 
@@ -21,7 +21,7 @@ const StyledInput = styled.input`
   padding-bottom: 0.5rem;
   outline: none;
   margin-top: 2rem;
-  width: 100%;
+  width: 60%;
   &:focus {
     color: $oc-teal-7;
     border-bottom: 1px solid ${palette.gray[7]};
@@ -34,7 +34,7 @@ const StyledInput = styled.input`
     css`
       csspadding-top: 1rem;
       padding-bottom: 0.75rem;
-      width: 100%;
+      width: 30%;
       margin-top: -2rem;
     `}
 `;
@@ -97,9 +97,14 @@ const Register = ({ type, form, onChange, onSubmit }) => {
       )}
       <Footer>
         {type === "contacts" ? (
-          <Link to="/register">추가하기</Link>
+          <div>
+            <Link to="/favorite">즐겨찾기</Link>{" "}
+            <Link to="/register">추가하기</Link>
+          </div>
         ) : (
-          <Link to="/">연락처</Link>
+          <div>
+            <Link to="/favorite">즐겨찾기</Link> <Link to="/">연락처</Link>
+          </div>
         )}
       </Footer>
     </RegisterBlock>

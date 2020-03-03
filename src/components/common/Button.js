@@ -1,14 +1,14 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import palette from "../../lib/styles/palette";
 
 const StyleButton = styled.button`
   ${props =>
     props.fullWidth &&
     css`
-      csspadding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-      width: 100%;
+      csspadding-top: 1rem;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      width: 45%;
       font-size: 1.125rem;
     `}
 `;

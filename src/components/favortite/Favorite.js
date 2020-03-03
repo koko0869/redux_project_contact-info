@@ -39,23 +39,34 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import palette from "../../lib/styles/palette";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345
+    maxWidth: 400
   },
   table: {
-    minWidth: 300
+    minWidth: 400
   }
 });
+
+const Top = styled.div`
+  margin-top: 2rem;
+  text-align: right;
+  margin-right: 1rem;
+  a {
+    color: ${palette.gray[6]};
+    text-decoration: underline;
+    &:hover {
+      color: ${palette.gray[9]};
+    }
+  }
+`;
 
 function createData(username, phone) {
   return { username, phone };
 }
-
-// .filter(info => {
-//   return info.name.indexOf(search) !== -1;
-// })
 
 export default function AcccessibleTable({ infos }) {
   const rows = (infos = infos.filter(info => {
@@ -67,27 +78,31 @@ export default function AcccessibleTable({ infos }) {
   const classes = useStyles();
 
   return (
-    <TableContainer className={classes.root} component={Paper}>
-      <h3>즐겨찾기</h3>
-      <Link to="/">연락처로 이동</Link>
-      <Table className={classes.table} aria-label="caption table">
-        <TableHead>
-          <TableRow>
-            <TableCell>이름</TableCell>
-            <TableCell align="right">전화번호</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.username}>
-              <TableCell component="th" scope="row">
-                {row.username}
-              </TableCell>
-              <TableCell align="right">{row.phone}</TableCell>
+    <div align="center">
+      <TableContainer className={classes.root} component={Paper}>
+        <h3>즐겨찾기</h3>
+        <Top>
+          <Link to="/">연락처</Link>
+        </Top>
+        <Table className={classes.table} aria-label="caption table">
+          <TableHead>
+            <TableRow>
+              <TableCell>이름</TableCell>
+              <TableCell align="right">전화번호</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {rows.map(row => (
+              <TableRow key={row.username}>
+                <TableCell component="th" scope="row">
+                  {row.username}
+                </TableCell>
+                <TableCell align="right">{row.phone}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 }
