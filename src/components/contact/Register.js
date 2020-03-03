@@ -34,8 +34,9 @@ const StyledInput = styled.input`
     css`
       csspadding-top: 1rem;
       padding-bottom: 0.75rem;
-      width: 30%;
+      width: 40%;
       margin-top: -2rem;
+      align-items: right ;
     `}
 `;
 

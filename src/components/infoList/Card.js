@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import IconButton from "@material-ui/core/IconButton";
+import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
 import Modal from "./Modal";
 const useStyles = makeStyles({
   root: {
@@ -47,6 +48,7 @@ export default function MediaCard({
             {username}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
+            <PhoneIphoneIcon fontSize="small" />
             {phone}
           </Typography>
         </CardContent>
